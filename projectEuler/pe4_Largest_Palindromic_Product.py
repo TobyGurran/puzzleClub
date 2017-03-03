@@ -17,12 +17,18 @@ def create_all_possible_products(list_of_numbers):
     return(products)
 
 all_products = create_all_possible_products(list_of_numbers=all_three_digit_numbers)
+#Make unique by converting to a set (loses ordering)
+all_products = set(all_products)
+#Convert back to list and sort
+all_products = list(all_products)
 all_products.sort(reverse=True)
 
+
 def is_number_palindromic(input_number):
-    number_list = [int(i) for i in str(input_number)]
+    #Make input number a string, then when you do list comprehension it will take each character. And make each an integer.
+    number_list = [i for i in str(input_number)]
     number_list_reversed=list(reversed(number_list))
-    number_list_reversed=[str(i) for i in number_list_reversed]
+    #Because each index is now a string, they can be joined with the join() method
     number_string_reversed="".join(number_list_reversed)
     if number_string_reversed == str(input_number):
         return True

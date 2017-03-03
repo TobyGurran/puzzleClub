@@ -9,22 +9,28 @@ max_range = 1000
 
 list_of_numbers_1_to_1000 = list(range(1,max_range+1,1))
 
-#1. via list comprehension
+#Solution 1. via list comprehension
 divisible_by_3_and_5 = [i for i in list_of_numbers_1_to_1000 if (i%3==0 or i%5==0)]
-print(divisible_by_3_and_5)
+print(sum(divisible_by_3_and_5))
+#234168
 
-#2. via list comprehension with a user-defined function (that will return True or False)
+#Solution 2. via list comprehension with a user-defined function (that will return True or False)
 def is_divisible_by_3_and_5(input):
-    return if (input % 3 == 0 or input % 5 == 0)
+    if (input % 3 == 0 or input % 5 == 0):
+        return True
+    else:
+        return False
 
 divisible_by_3_and_5 = [i for i in list_of_numbers_1_to_1000 if is_divisible_by_3_and_5(i)]
-print(divisible_by_3_and_5)
+print(sum(divisible_by_3_and_5))
 
 
-#3. via a for loop
-#This doesn't work. It says invalid syntax
+#Solution 3. via a for loop
 divisible_by_3_and_5 = list()
-for i in range(list_of_numbers_1_to_1000):
-    print(i)
-    if is_divisible_by_3_and_5(input=list_of_numbers_1_to_1000[i])
+for i in range(len(list_of_numbers_1_to_1000)):
+    if (list_of_numbers_1_to_1000[i] % 3 == 0 or list_of_numbers_1_to_1000[i] % 5 == 0):
         divisible_by_3_and_5.append(list_of_numbers_1_to_1000[i])
+    else:
+        continue
+
+print(sum(divisible_by_3_and_5))
